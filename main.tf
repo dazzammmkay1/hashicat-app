@@ -201,6 +201,12 @@ resource "null_resource" "configure-cat-app" {
     }
   }
 }
+
+module "azure-backup" {
+  source  = "ravensorb/azure-backup/azurerm"
+  version = "1.0.2"
+  resource_group_name = "${var.prefix}-public"
+}
 module "backupstorage" {
   source = "app.terraform.io/dazzammmkaytrial/azure-backup/azurerm"
   version = "1.0.2"
